@@ -1,0 +1,18 @@
+{
+  "name": "grocery-basket-of-goods-cron",
+  "version": "1.0.0",
+  "description": "Collect and save grocery data from local store to chart out grocery basket of goods.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=config.env index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^21.7.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
