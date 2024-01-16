@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '21.x'
       - run: npm ci
-      - run: npm run start
+      - run: npm run start:ci
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
