@@ -16,3 +16,11 @@ jobs:
           node-version: '21.x'
       - run: npm ci
       - run: npm run start
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          API: ${{ secrets.API }}
+          LOGIN_URL: ${{ secrets.LOGIN_URL }}
+          COOKIE_NAME: ${{ secrets.COOKIE_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
