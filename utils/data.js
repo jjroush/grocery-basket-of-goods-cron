@@ -11,21 +11,22 @@ const client = new DynamoDBClient({
 const docClient = DynamoDBDocumentClient.from(client);
 
 export const addProducts = async (products) => {
-    let products = [];
-    for (const {productId, description} of products) {
+    let dynamoRequests = [];
+    for (const {productId, description, price} of products) {
         const put = new PutCommand({
             TableName: "local-grocery-price-changes",
             Item: {
                 productId,
                 "timestamp": new Date().toISOString(),
+                price,
                 description,
             },
         });
+
         const putCommandPromise = docClient.send(put);
 
-        products.push(put);
-
-        const insert = await Promise.all(products);
+        dynamoRequests.push(putCommandPromise);
     }
 
+    await Promise.all(products);
 }

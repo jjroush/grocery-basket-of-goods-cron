@@ -3,8 +3,7 @@ import {getProductsPrices} from "./utils/fetch-data.js";
 import {addProducts} from "./utils/data.js";
 
 console.time('Runtime')
-console.log(process.env.EMAIL, process.env.PASSWORD);
-// const cookieHeader = await login();
+const cookieHeader = await login();
 
 const productIds = [
     66077,   3011532, 356434,  66622,
@@ -16,10 +15,8 @@ const productIds = [
     37147
 ];
 
-// const prices = await getProductsPrices(cookieHeader, productIds);
+const products = await getProductsPrices(cookieHeader, productIds);
 
-const test = await addProducts();
-
-// console.log('test', prices[0], new Date().toISOString());
+const test = await addProducts(products);
 
 console.timeEnd('Runtime');

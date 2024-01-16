@@ -14,6 +14,7 @@ async function untilCookiesAreSet(conditionFunction) {
         if (result.cookies.find(x => x.name === process.env.COOKIE_NAME)) {
             resolve(result.cookies);
         } else {
+            console.log('Polling Auth Cookie...');
             setTimeout(_ => poll(resolve), 500)
         }
     }
@@ -27,11 +28,12 @@ export const login = async () => {
 
     const browser = await puppeteer.launch({headless: 'new'});
     const page = await browser.newPage();
+    await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0');
 
     // Navigate the page to a URL
     await page.goto(process.env.LOGIN_URL);
 
-    await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0');
+    console.log('Logging in...')
 
     await page.type('#username', process.env.EMAIL);
     await page.type('#password', process.env.PASSWORD);

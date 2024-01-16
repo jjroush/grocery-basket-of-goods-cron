@@ -1,3 +1,4 @@
+import Big from "big.js";
 
 export const getProductsPrices = async (cookieHeader, productIds) => {
     console.time('dataFetch');
@@ -13,11 +14,29 @@ export const getProductsPrices = async (cookieHeader, productIds) => {
 
     const products = await Promise.all(productFetches);
 
-    const productDetails = products.map(product => ({
-        productId: product.data.product.productId,
-        description: product.data.product.item.description,
-        price: product.data.storeProducts.storeProducts[0].price,
-    }));
+    let productDetails = [];
+
+    let basketTotal = new Big(0);
+
+    for (const product of products) {
+        const productId = Number(product.data.product.productId);
+        const description = product.data.product.item.description;
+        const price = product.data.storeProducts.storeProducts[0].price;
+
+        basketTotal = basketTotal.plus(price);
+
+        productDetails.push({
+            productId,
+            description,
+            price,
+        });
+    }
+
+    productDetails.push({
+        productId: 0,
+        description: 'Basket Total',
+        price: basketTotal.toFixed(2)
+    });
 
     console.timeEnd('dataFetch');
 
