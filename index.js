@@ -15,8 +15,10 @@ const productIds = [
     37147
 ];
 
+console.log('cookieHeader', cookieHeader);
+
 const products = await getProductsPrices(cookieHeader, productIds);
 
-const test = await addProducts(products);
+await addProducts(products);
 
 console.timeEnd('Runtime');

@@ -21,15 +21,22 @@ export const getProductsPrices = async (cookieHeader, productIds) => {
     for (const product of products) {
         const productId = Number(product.data.product.productId);
         const description = product.data.product.item.description;
-        const price = product.data.storeProducts.storeProducts[0].price;
+        try {
+            const price = product.data.product.item.retailItems[0].tagPrice;
 
-        basketTotal = basketTotal.plus(price);
+            basketTotal = basketTotal.plus(price);
 
-        productDetails.push({
-            productId,
-            description,
-            price,
-        });
+            productDetails.push({
+                productId,
+                description,
+                price,
+            });
+        console.log('price', price);
+        } catch (e) {
+            console.log('Issue Processing:', description);
+            throw new Error(e)
+        }
+
     }
 
     productDetails.push({
