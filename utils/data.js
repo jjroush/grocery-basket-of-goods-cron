@@ -10,11 +10,11 @@ const client = new DynamoDBClient({
 });
 const docClient = DynamoDBDocumentClient.from(client);
 
-export const addProducts = async (products) => {
+export const addProducts = async (products, tableName) => {
 	const dynamoRequests = [];
 	for (const { productId, description, price } of products) {
 		const put = new PutCommand({
-			TableName: "local-grocery-price-changes",
+			TableName: tableName,
 			Item: {
 				productId,
 				timestamp: new Date().toISOString(),
