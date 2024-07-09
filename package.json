@@ -19,7 +19,6 @@
     "@aws-sdk/lib-dynamodb": "^3.490.0",
     "@biomejs/biome": "^1.5.3",
     "big.js": "^6.2.1",
-    "cheerio": "^1.0.0-rc.12",
     "jsdom": "^24.0.0",
     "puppeteer": "^21.7.0",
     "puppeteer-extra": "^3.3.6",
