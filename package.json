@@ -17,11 +17,13 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.490.0",
     "@aws-sdk/lib-dynamodb": "^3.490.0",
-    "@biomejs/biome": "^1.5.3",
     "big.js": "^6.2.1",
     "jsdom": "^24.0.0",
     "puppeteer": "^21.7.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.3"
   }
 }
