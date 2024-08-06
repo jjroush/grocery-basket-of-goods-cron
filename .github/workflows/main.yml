@@ -14,7 +14,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.5.1'
+          node-version: '20.16.0'
       - run: npm i
       - run: npm run start:ci
         env:
@@ -33,7 +33,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.5.1'
+          node-version: '20.16.0'
       - run: npm i
       - run: npm run start:big-red:ci
         env:
