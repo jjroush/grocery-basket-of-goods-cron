@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.16.0'
-      - run: npm i --loglevel verbose
+      - run: npm i --production --loglevel verbose
       - run: npm run start:ci
         env:
           EMAIL: ${{ secrets.EMAIL }}
@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.16.0'
-      - run: npm i
+      - run: npm i --production
       - run: npm run start:big-red:ci
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
