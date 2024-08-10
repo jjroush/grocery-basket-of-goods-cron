@@ -94,8 +94,7 @@ export const basketOfGoods = [
 	{
 		product: "Firehook Rosemary SS Crckrs",
 		localGroceryId: 2486911,
-		nationalGroceryId:
-			"simple-mills-sea-salt-4-25oz/-/A-53286867",
+		nationalGroceryId: "simple-mills-sea-salt-4-25oz/-/A-53286867",
 	},
 	{
 		product: "B&J's Phish Food Ice Cream",
