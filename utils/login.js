@@ -25,7 +25,12 @@ async function untilCookiesAreSet(conditionFunction) {
 export const login = async () => {
 	puppeteer.use(StealthPlugin());
 
-	const browser = await puppeteer.launch({ headless: false });
+	const browser = await puppeteer.launch({
+		headless: false,
+		 env: {
+        		DISPLAY: ":10.0"
+    		}
+	});
 	const page = await browser.newPage();
 	await page.setUserAgent(
 		"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0",
