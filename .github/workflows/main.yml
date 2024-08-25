@@ -17,7 +17,7 @@ jobs:
           node-version: '20.16.0'
       - name: Delete package-lock.json
         run: rm package-lock.json
-      - run: npm i --production --loglevel verbose
+      - run: npm i --production
       - run: npm run start:ci
         env:
           EMAIL: ${{ secrets.EMAIL }}
