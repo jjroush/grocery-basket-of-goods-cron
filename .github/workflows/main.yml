@@ -29,7 +29,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   national:
     timeout-minutes: 3
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-beast
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
