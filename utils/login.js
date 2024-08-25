@@ -1,4 +1,5 @@
-import puppeteer from "puppeteer-extra";
+// import puppeteer from "puppeteer-extra";
+import { connect } from "puppeteer-real-browser";
 
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
@@ -23,18 +24,17 @@ async function untilCookiesAreSet(conditionFunction) {
 }
 
 export const login = async () => {
-	puppeteer.use(StealthPlugin());
+	// puppeteer.use(StealthPlugin());
 
-	const browser = await puppeteer.launch({
+	const {page, browser} = await connect({
 		headless: false,
-		 env: {
-        		DISPLAY: ":1"
-    		}
+		turnstile: true,
+		disableXvfb: false,
 	});
-	const page = await browser.newPage();
-	await page.setUserAgent(
-		"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0",
-	);
+	// const page = await browser.newPage();
+	// await page.setUserAgent(
+	// 	"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0",
+	// );
 
 	// Navigate the page to a URL
 	await page.goto(process.env.LOGIN_URL);
