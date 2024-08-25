@@ -39,6 +39,7 @@ export const login = async () => {
 	// Navigate the page to a URL
 	await page.goto(process.env.LOGIN_URL);
 
+	await delay(2000);
 	console.log("Logging in...");
 
 	await page.type("#username", process.env.EMAIL);
