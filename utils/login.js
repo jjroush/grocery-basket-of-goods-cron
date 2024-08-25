@@ -28,7 +28,7 @@ export const login = async () => {
 	const browser = await puppeteer.launch({
 		headless: false,
 		 env: {
-        		DISPLAY: ":10.0"
+        		DISPLAY: ":1"
     		}
 	});
 	const page = await browser.newPage();
